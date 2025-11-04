@@ -1,4 +1,8 @@
-transformers
-torch
-Streamlit
+transformers==4.57.1
+torch==2.2.2
+torchaudio==2.2.2
+soundfile
+numpy==1.24.1
+streamlit
 speechrecognition 
+loguru
