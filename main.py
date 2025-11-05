@@ -3,6 +3,7 @@ import requests
 from loguru import logger
 from sys import stderr
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
+from diffusers import DiffusionPipeline
 import torch
 import torchaudio
 import io
@@ -22,10 +23,13 @@ text_to_prompt_model = AutoModelForCausalLM.from_pretrained(
     torch_dtype=torch.float16,
 )
 
+text_to_image = DiffusionPipeline.from_pretrained("stable-diffusion-v1-5/stable-diffusion-v1-5")
+
+
 logger.add(stderr, format="{time} {level} {message}", filter="my_module", level="INFO")
 logger.add("logs/main.log")
 
-st.header("Petit Prince AI")
+st.header("Dessine-moi un mouton")
 
 with st.form("my_form"):
     audio_input = st.audio_input("Enregistrez-vous et demandez un dessin.")
@@ -74,6 +78,10 @@ with st.form("my_form"):
             prompt =tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
 
             st.text(f"Prompt: {prompt}")
+
+            image_output = text_to_image(prompt).images[0]
+
+            st.image(image_output)
 
         except requests.exceptions.HTTPError as e:
             st.error(f"Erreur HTTP : {e}")

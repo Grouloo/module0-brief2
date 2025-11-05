@@ -3,6 +3,7 @@ torch==2.2.2
 torchaudio==2.2.2
 soundfile
 numpy==1.24.1
+diffusers
 streamlit
 speechrecognition 
 loguru
