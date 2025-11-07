@@ -2,6 +2,8 @@
 
 Génération d'images à partir de la parole
 
+![Project UI](./media/screenshot.png)
+
 ## Installer le projet et ses dépendances
 
 ```bash
@@ -28,11 +30,11 @@ Si ce n'est pas le cas, l'application devrait tout de même être accessible dep
 
 Ce projet utilise trois modèles d'IA différents afin de proposer un workflow _speech-to-text-to-prompt-to-image_.
 
-Voici ces modèles, choisis pour leur capacité à être exécutés en local sur une machine personnelle, et pour la qualité de leurs réponses :
+Voici ces modèles, choisis pour leur capacité à être exécutés en local sur une machine personnelle et pour la qualité de leurs réponses :
 
 1. **Speech-to-text :** [Whisper-Small d'OpenAI](https://huggingface.co/openai/whisper-small) (configuré pour la langue française)
-2. **Text generation :** [Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) (configuré pour passer l'étape de réflexion)
-3. **Text-to-image :** [Stable Diffusion v1-5](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5) (le dépôt originel de Stability AI ayant été supprimé, le dépôt utilisé ici est un clone)
+2. **Text generation :** [Qwen3-0.6B d'Alibaba Cloud](https://huggingface.co/Qwen/Qwen3-0.6B) (configuré pour passer l'étape de réflexion)
+3. **Text-to-image :** [Stable Diffusion v1-5 de Stability AI](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5) (le dépôt originel de Stability AI ayant été supprimé, le dépôt utilisé ici est un clone)
 
 ### Défi technique : choix du modèle de langage
 
